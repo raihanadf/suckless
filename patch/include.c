@@ -3,6 +3,8 @@
 #include "bar_tagicons.c"
 #include "bar.c"
 
+#include "bar_alternativetags.c"
+#include "bar_ewmhtags.c"
 #include "combo.c"
 #include "bar_ltsymbol.c"
 #include "bar_status.c"

@@ -9,6 +9,7 @@ draw_awesomebar(Bar *bar, BarArg *a)
 {
 	int n = 0, scm, remainder = 0, tabw, tpad, tx, tw;
 	unsigned int i;
+	int cpad;
 	int x = a->x + lrpad / 2, w = a->w - lrpad / 2;
 
 	Client *c;
@@ -32,16 +33,22 @@ draw_awesomebar(Bar *bar, BarArg *a)
 				scm = SchemeTitleNorm;
 
 			tpad = lrpad / 2;
+			cpad = 0;
 
 			tx = x;
 			tw = tabw;
 
+			if (TEXTW(c->name) < tabw)
+				cpad = (tabw - TEXTW(c->name)) / 2;
 
 			drw_setscheme(drw, scheme[scm]);
 
 			XSetForeground(drw->dpy, drw->gc, drw->scheme[ColBg].pixel);
 			XFillRectangle(drw->dpy, drw->drawable, drw->gc, tx, a->y, tw, a->h);
 
+			/* Apply center padding, if any */
+			tx += cpad;
+			tw -= cpad;
 
 			tx += tpad;
 			tw -= lrpad;
