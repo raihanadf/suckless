@@ -20,7 +20,6 @@
 #include "cyclelayouts.h"
 #include "restartsig.h"
 #include "seamless_restart.h"
-#include "togglefullscreen.h"
 #include "vanitygaps.h"
 #include "zoomswap.h"
 /* Layouts */

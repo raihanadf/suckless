@@ -19,7 +19,6 @@
 #include "cool_autostart.c"
 #include "cyclelayouts.c"
 #include "restartsig.c"
-#include "togglefullscreen.c"
 #include "vanitygaps.c"
 #include "zoomswap.c"
 #include "seamless_restart.c"
