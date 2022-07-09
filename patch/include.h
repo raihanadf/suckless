@@ -3,7 +3,6 @@
 #include "bar_tagicons.h"
 #include "bar.h"
 
-#include "bar_alternativetags.h"
 #include "bar_ewmhtags.h"
 #include "combo.h"
 #include "bar_ltsymbol.h"

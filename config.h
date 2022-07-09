@@ -14,9 +14,9 @@ static const int bar_height              = 30;   /* 0 means derive from font, >=
 static const int focusonwheel            = 0;
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
-static const char buttonbar[]            = "ᕦ(ò_óˇ)ᕤ ";
+static const char buttonbar[]            = "ᕦ(ò_óˇ)ᕤ 󰀻";
 static const unsigned int systrayspacing = 2;   /* systray spacing */
-static const int showsystray             = 1;   /* 0 means no systray */
+static const int showsystray             = 0;   /* 0 means no systray */
 static const unsigned int ulinepad = 5;         /* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke  = 2;     /* thickness / height of the underline */
 static const unsigned int ulinevoffset = 0;     /* how far above the bottom of the bar the line should appear */
@@ -27,8 +27,9 @@ static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const int quit_empty_window_count = 0;   /* only allow dwm to quit if no (<= count) windows are open */
-
-static const char *fonts[]               = { "Iosevka:size=14" };
+static const char *fonts[]               = { 
+	"Iosevka NF:style=Bold:size=14", 
+	"Material Design Icons Desktop:size=15" };
 static const char dmenufont[]            = "monospace:size=10";
 
 static char c000000[]                    = "#000000"; // placeholder value
@@ -36,8 +37,8 @@ static char c000000[]                    = "#000000"; // placeholder value
 //static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#ebdbb2";
-static char normbgcolor[]                = "#282828";
-static char normbordercolor[]            = "#2e2212";
+static char normbgcolor[]                = "#05080a";
+static char normbordercolor[]            = "#0A0D0F";
 static char normfloatcolor[]             = "#98971a";
 
 static char selfgcolor[]                 = "#eeeeee";
@@ -94,8 +95,11 @@ static char *colors[][ColCount] = {
 
 
 static const char *const autostart[] = {
-	"kitty", NULL,
 	"nitrogen", "--restore", NULL,
+	"sxhkd", NULL,
+	"sh","-c","$HOME/.dotfiles/scripts/autostart.sh", NULL,
+	"sh","-c","$HOME/.dotfiles/scripts/batteryCheck.sh", NULL,
+	"sh","-c","$HOME/.dotfiles/scripts/udiskie.sh", NULL,
 	NULL /* terminate */
 };
 
@@ -127,8 +131,9 @@ static const char *const autostart[] = {
  * until it an icon matches. Similarly if there are two tag icons then it would alternate between
  * them. This works seamlessly with alternative tags and alttagsdecoration patches.
  */
+
 static char *tagicons[][NUMTAGS] = {
-	[DEFAULT_TAGS]        = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" },
+	[DEFAULT_TAGS]        = { "term", "󰅩", "󰖟", "󰄛", "󰊖", "6", "7", "8", "9" },
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -163,8 +168,42 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "Firefox", .tags = 1 << 7)
+
+	RULE(.class = "kitty", .isfloating = 0)
+	RULE(.class = "Gpick", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "Lxappearance", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "Xfce-polkit", .isfloating = 1, .iscentered = 1)
+
+	RULE(.class = "Alacritty", .tags = 1 << 0, .switchtag = 1) // tag-1
+	RULE(.class = "st-256color", .tags = 1 << 0, .switchtag = 1) // tag-1
+	RULE(.class = "Emacs", .tags = 1 << 0, .switchtag = 1)
+	RULE(.class = "Geany", .tags = 1 << 0, .switchtag = 1)
+
+	RULE(.class = "Pcmanfm", .tags = 1 << 1, .switchtag = 1) // tag-2
+	RULE(.class = "Thunar", .tags = 1 << 1, .switchtag = 1, .iscentered = 1) // tag-2
+	RULE(.class = "qBittorrent", .tags = 1 << 1, .switchtag = 1)
+
+	RULE(.class = "Chromium", .tags = 1 << 2, .switchtag = 1, .iscentered = 1) // tag-3
+	RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
+	RULE(.class = "Nyxt", .tags = 1 << 2, .switchtag = 1) // tag-3
+	RULE(.class = "Vieb", .tags = 1 << 2, .switchtag = 1)
+
+	RULE(.class = "Gimp", .tags = 1 << 3, .switchtag = 1, .isfloating = 1, .iscentered = 1) // tag-4
+	RULE(.class = "obs", .tags = 1 << 3, .switchtag = 1, .iscentered = 1)
+	RULE(.class = "vlc", .tags = 1 << 3, .switchtag = 1)
+	RULE(.class = "mpv", .tags = 1 << 3, .switchtag = 1)
+	RULE(.class = "zoom", .tags = 1 << 3, .switchtag = 1)
+
+	RULE(.class = "calibre", .tags = 1 << 4, .switchtag = 1) // tag-5
+	RULE(.class = "Zathura", .tags = 1 << 4, .switchtag = 1) // tag-5
+
+	RULE(.class = "KotatogramDesktop", .tags = 1 << 5, .switchtag = 1) // tag-6
+	
+	RULE(.class = "Ryujinx", .tags = 1 << 6, .switchtag = 1, .isfloating = 1) // tag-6
+	RULE(.class = "yuzu", .tags = 1 << 6, .switchtag = 1, .isfloating = 1) // tag-6
+																																			//
+	RULE(.class = "GParted", .tags = 1 << 7, .switchtag = 1, .isfloating = 1, .iscentered = 1) // tag-8
+	RULE(.class = "Xfce4-power-manager-settings", .tags = 1 << 7, .switchtag = 1, .isfloating = 1, .iscentered = 1)
 };
 
 
@@ -285,7 +324,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period,     focusmon,               {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,      tagmon,                 {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = +1 } },
-	{ MODKEY,                       XK_n,          togglealttag,           {0} },
 	{ MODKEY|ControlMask,           XK_comma,      cyclelayout,            {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period,     cyclelayout,            {.i = +1 } },
 	TAGKEYS(                        XK_1,                                  0)

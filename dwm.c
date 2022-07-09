@@ -203,6 +203,7 @@ struct Client {
 	int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid;
 	int bw, oldbw;
 	unsigned int tags;
+	unsigned int switchtag;
 	int isfixed, isfloating, isurgent, neverfocus, oldstate, isfullscreen;
 	int iscentered;
 	Client *next;
@@ -246,7 +247,6 @@ struct Monitor {
 	Monitor *next;
 	Bar *bar;
 	const Layout *lt[2];
-	unsigned int alttag;
 };
 
 typedef struct {
@@ -256,6 +256,7 @@ typedef struct {
 	const char *title;
 	const char *wintype;
 	unsigned int tags;
+	int switchtag;
 	int iscentered;
 	int isfloating;
 	int monitor;
@@ -270,7 +271,7 @@ typedef struct {
 #define FAKEFULLSCREEN
 #define NOSWALLOW
 #define TERMINAL
-#define SWITCHTAG
+#define SWITCHTAG , .switchtag = 1
 
 
 /* function declarations */
@@ -425,6 +426,7 @@ applyrules(Client *c)
 	Atom wintype;
 	char role[64];
 	unsigned int i;
+	unsigned int newtagset;
 	const Rule *r;
 	Monitor *m;
 	XClassHint ch = { NULL, NULL };
@@ -454,6 +456,26 @@ applyrules(Client *c)
 			if (m)
 				c->mon = m;
 
+			if (r->switchtag)
+			{
+				selmon = c->mon;
+				if (r->switchtag == 2 || r->switchtag == 4)
+					newtagset = c->mon->tagset[c->mon->seltags] ^ c->tags;
+				else
+					newtagset = c->tags;
+
+				/* Switch to the client's tag, but only if that tag is not already shown */
+				if (newtagset && !(c->tags & c->mon->tagset[c->mon->seltags])) {
+					if (r->switchtag == 3 || r->switchtag == 4)
+						c->switchtag = c->mon->tagset[c->mon->seltags];
+					if (r->switchtag == 1 || r->switchtag == 3) {
+						view(&((Arg) { .ui = newtagset }));
+					} else {
+						c->mon->tagset[c->mon->seltags] = newtagset;
+						arrange(c->mon);
+					}
+				}
+			}
 		}
 	}
 	if (ch.res_class)
@@ -926,7 +948,7 @@ createmon(void)
 		istopbar = !istopbar;
 		bar->showbar = 1;
 		bar->external = 0;
-		bar->borderpx = 0;
+		bar->borderpx = borderpx;
 		bar->bh = bh + bar->borderpx * 2;
 		bar->borderscheme = SchemeNorm;
 	}
@@ -1848,6 +1870,8 @@ sendmon(Client *c, Monitor *m)
 	attachstack(c);
 	focus(NULL);
 	arrange(NULL);
+	if (c->switchtag)
+		c->switchtag = 0;
 }
 
 void
@@ -2146,6 +2170,8 @@ tag(const Arg *arg)
 
 	if (selmon->sel && arg->ui & TAGMASK) {
 		selmon->sel->tags = arg->ui & TAGMASK;
+		if (selmon->sel->switchtag)
+			selmon->sel->switchtag = 0;
 		focus(NULL);
 		arrange(selmon);
 	}
@@ -2249,6 +2275,7 @@ void
 unmanage(Client *c, int destroyed)
 {
 	Monitor *m = c->mon;
+	unsigned int switchtag = c->switchtag;
 	XWindowChanges wc;
 
 
@@ -2272,6 +2299,8 @@ unmanage(Client *c, int destroyed)
 	focus(NULL);
 	updateclientlist();
 	arrange(m);
+	if (switchtag && ((switchtag & TAGMASK) != selmon->tagset[selmon->seltags]))
+		view(&((Arg) { .ui = switchtag }));
 }
 
 void
