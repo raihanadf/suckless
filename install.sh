@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DWM_DIR="$(pwd)"
+DWM_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SLOCK_DIR="$DWM_DIR/slock"
 
 // install dwm
