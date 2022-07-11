@@ -169,41 +169,36 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 
-	RULE(.class = "kitty", .isfloating = 0)
 	RULE(.class = "Gpick", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Lxappearance", .isfloating = 1, .iscentered = 1)
-	RULE(.class = "Xfce-polkit", .isfloating = 1, .iscentered = 1)
 
-	RULE(.class = "Alacritty", .tags = 1 << 0, .switchtag = 1) // tag-1
-	RULE(.class = "st-256color", .tags = 1 << 0, .switchtag = 1) // tag-1
-	RULE(.class = "Emacs", .tags = 1 << 0, .switchtag = 1)
-	RULE(.class = "Geany", .tags = 1 << 0, .switchtag = 1)
+	/* RULE(.class = "Alacritty", .tags = 1 << 0, .switchtag = 1) // tag-1 */
+	/* RULE(.class = "st-256color", .tags = 1 << 0, .switchtag = 1) // tag-1 */
+	/* RULE(.class = "Emacs", .tags = 1 << 0, .switchtag = 1) */
+	/* RULE(.class = "Geany", .tags = 1 << 0, .switchtag = 1) */
 
-	RULE(.class = "Pcmanfm", .tags = 1 << 1, .switchtag = 1) // tag-2
+	RULE(.class = "Code", .tags = 1 << 1, .switchtag = 1) // tag-2
+	RULE(.class = "jetbrains-studio", .tags = 1 << 1, .switchtag = 1) // tag-2
 	RULE(.class = "Thunar", .tags = 1 << 1, .switchtag = 1, .iscentered = 1) // tag-2
-	RULE(.class = "qBittorrent", .tags = 1 << 1, .switchtag = 1)
 
 	RULE(.class = "Chromium", .tags = 1 << 2, .switchtag = 1, .iscentered = 1) // tag-3
 	RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
-	RULE(.class = "Nyxt", .tags = 1 << 2, .switchtag = 1) // tag-3
 	RULE(.class = "Vieb", .tags = 1 << 2, .switchtag = 1)
 
 	RULE(.class = "Gimp", .tags = 1 << 3, .switchtag = 1, .isfloating = 1, .iscentered = 1) // tag-4
-	RULE(.class = "obs", .tags = 1 << 3, .switchtag = 1, .iscentered = 1)
-	RULE(.class = "vlc", .tags = 1 << 3, .switchtag = 1)
-	RULE(.class = "mpv", .tags = 1 << 3, .switchtag = 1)
 	RULE(.class = "zoom", .tags = 1 << 3, .switchtag = 1)
+	RULE(.class = "Spotify", .tags = 1 << 3, .switchtag = 1)
+	RULE(.class = "spotify", .tags = 1 << 3, .switchtag = 1)
+	RULE(.class = "obs", .tags = 1 << 3, .switchtag = 1, .iscentered = 1)
+	RULE(.class = "qBittorrent", .tags = 1 << 3, .switchtag = 1)
 
 	RULE(.class = "calibre", .tags = 1 << 4, .switchtag = 1) // tag-5
-	RULE(.class = "Zathura", .tags = 1 << 4, .switchtag = 1) // tag-5
+	RULE(.class = "Steam", .tags = 1 << 4, .switchtag = 0) // tag-5
 
 	RULE(.class = "KotatogramDesktop", .tags = 1 << 5, .switchtag = 1) // tag-6
 	
 	RULE(.class = "Ryujinx", .tags = 1 << 6, .switchtag = 1, .isfloating = 1) // tag-6
 	RULE(.class = "yuzu", .tags = 1 << 6, .switchtag = 1, .isfloating = 1) // tag-6
-																																			//
-	RULE(.class = "GParted", .tags = 1 << 7, .switchtag = 1, .isfloating = 1, .iscentered = 1) // tag-8
-	RULE(.class = "Xfce4-power-manager-settings", .tags = 1 << 7, .switchtag = 1, .isfloating = 1, .iscentered = 1)
 };
 
 
