@@ -193,7 +193,7 @@ static const Rule rules[] = {
 	RULE(.class = "qBittorrent", .tags = 1 << 3, .switchtag = 1)
 
 	RULE(.class = "calibre", .tags = 1 << 4, .switchtag = 1) // tag-5
-	RULE(.class = "Steam", .tags = 1 << 4, .switchtag = 0) // tag-5
+	RULE(.class = "Steam", .tags = 1 << 4, .isfloating = 1) // tag-5
 
 	RULE(.class = "KotatogramDesktop", .tags = 1 << 5, .switchtag = 1) // tag-6
 	

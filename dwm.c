@@ -790,7 +790,11 @@ clientmessage(XEvent *e)
 			)));
 		}
 	} else if (cme->message_type == netatom[NetActiveWindow]) {
-		if (c->tags & c->mon->tagset[c->mon->seltags])
+		if (c->issteam) {
+			if (c->tags & c->mon->tagset[c->mon->seltags])
+				return;
+			seturgent(c, 1);
+		} else if (c->tags & c->mon->tagset[c->mon->seltags])
 			focus(c);
 		else {
 			for (i = 0; i < NUMTAGS && !((1 << i) & c->tags); i++);
