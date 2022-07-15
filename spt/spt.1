@@ -1,0 +1,51 @@
+.TH SPT 1 spt\-VERSION
+.SH NAME
+spt \- simple pomodoro timer
+.SH SYNOPSIS
+.B spt
+.RB [ \-e
+.IR notifyext ]
+.RB [ \-n
+.IR notifycmd ]
+.RB [ \-v ]
+.SH DESCRIPTION
+.B spt
+is a simple timer that uses pomodoro technique with desktop notification to
+double your efficiency.
+.B spt
+receives 2 signals:
+.P
+.RS
+.B SIGUSR1
+\- show remaining time, state
+.br
+.B SIGUSR2
+\- play/pause the timer
+.RE
+.SH OPTIONS
+.TP
+.BI \-e " notifyext"
+Execute
+.I notifyext
+when timer starts ticking.
+.TP
+.BI \-n " notifycmd"
+Execute
+.I notifycmd
+if not compiled with
+.IR "-DNOTIFY".
+.TP
+.BI \-v
+Prints version information to stderr, then exits.
+.SH TIMER
+4 pomodoro timer (
+.B 25 min.
+) with subsequent rests in between (
+.B 5 min.
+) and followed by a long rest (
+.B 15 min.
+) in an infinite loop.
+.SH EXAMPLES
+Use system notify_send and play a music without libnotify:
+.IP
+spt -e 'aplay alarm.wav' -n 'notify-send'
