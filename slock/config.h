@@ -20,7 +20,7 @@ static const char * text_color = "#ffffff";
 static const char * font_name = "6x13";
 
 /* Background image path, should be available to the user above */
-static const char * background_image = "/home/raihan/Pictures/Wallpapers/lockscreen.jpg";
+static const char * background_image = "/home/raihan/Pictures/Wallpapers/oil-gustave2.jpg";
 
 
 
