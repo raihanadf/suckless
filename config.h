@@ -17,7 +17,7 @@ static const int statusmon               = 'A';
 static const char buttonbar[]            = "ᕦ(ò_óˇ)ᕤ 󰀻";
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int showsystray             = 0;   /* 0 means no systray */
-static const unsigned int ulinepad = 5;         /* horizontal padding between the underline and tag */
+static const unsigned int ulinepad = 15;         /* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke  = 2;     /* thickness / height of the underline */
 static const unsigned int ulinevoffset = 0;     /* how far above the bottom of the bar the line should appear */
 static const int ulineall = 0;                  /* 1 to show underline on all tags, 0 for just the active ones */
@@ -43,16 +43,16 @@ static char normfloatcolor[]             = "#98971a";
 
 static char selfgcolor[]                 = "#eeeeee";
 static char selbgcolor[]                 = "#005577";
-static char selbordercolor[]             = "#ebdbb2";
+static char selbordercolor[]             = "#282828";
 static char selfloatcolor[]              = "#005577";
 
-static char titlenormfgcolor[]           = "#ebdbb2";
+static char titlenormfgcolor[]           = "#5e5848";
 static char titlenormbgcolor[]           = "#282828";
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
-static char titleselfgcolor[]            = "#282828";
-static char titleselbgcolor[]            = "#ebdbb2";
+static char titleselfgcolor[]            = "#ebdbb2";
+static char titleselbgcolor[]            = "#282828";
 static char titleselbordercolor[]        = "#005577";
 static char titleselfloatcolor[]         = "#005577";
 
@@ -61,15 +61,15 @@ static char tagsnormbgcolor[]            = "#222222";
 static char tagsnormbordercolor[]        = "#444444";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
-static char tagsselfgcolor[]             = "#171109";
-static char tagsselbgcolor[]             = "#b8bb26";
+static char tagsselfgcolor[]             = "#FFFFFF";
+static char tagsselbgcolor[]             = "#00008b";
 static char tagsselbordercolor[]         = "#005577";
 static char tagsselfloatcolor[]          = "#005577";
 
 static char hidnormfgcolor[]             = "#005577";
-static char hidselfgcolor[]              = "#227799";
-static char hidnormbgcolor[]             = "#222222";
-static char hidselbgcolor[]              = "#222222";
+static char hidselfgcolor[]              = "#282828";
+static char hidnormbgcolor[]             = "#282828";
+static char hidselbgcolor[]              = "#282828";
 
 static char urgfgcolor[]                 = "#bbbbbb";
 static char urgbgcolor[]                 = "#222222";
