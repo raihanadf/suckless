@@ -14,7 +14,7 @@ static const int bar_height              = 30;   /* 0 means derive from font, >=
 static const int focusonwheel            = 0;
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
-static const char buttonbar[]            = "ᕦ(ò_óˇ)ᕤ 󰀻";
+static const char buttonbar[]            = "󰀻";
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int showsystray             = 0;   /* 0 means no systray */
 static const unsigned int ulinepad = 15;         /* horizontal padding between the underline and tag */
@@ -186,7 +186,7 @@ static const Rule rules[] = {
 	RULE(.class = "Vieb", .tags = 1 << 2, .switchtag = 1)
 
 	RULE(.class = "Gimp", .tags = 1 << 3, .switchtag = 1, .isfloating = 1, .iscentered = 1) // tag-4
-	RULE(.class = "zoom", .tags = 1 << 3, .switchtag = 1)
+	RULE(.class = "zoom", .tags = 1 << 3, .switchtag = 1, .isfloating = 1)
 	RULE(.class = "Spotify", .tags = 1 << 3, .switchtag = 1)
 	RULE(.class = "spotify", .tags = 1 << 3, .switchtag = 1)
 	RULE(.class = "obs", .tags = 1 << 3, .switchtag = 1, .iscentered = 1)
