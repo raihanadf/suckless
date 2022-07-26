@@ -183,7 +183,7 @@ static const Rule rules[] = {
 
 	RULE(.class = "Chromium", .tags = 1 << 2, .switchtag = 1, .iscentered = 1) // tag-3
 	RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
-	RULE(.class = "Vieb", .tags = 1 << 2, .switchtag = 1)
+	RULE(.class = "Microsoft-edge", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
 
 	RULE(.class = "Gimp", .tags = 1 << 3, .switchtag = 1, .isfloating = 1, .iscentered = 1) // tag-4
 	RULE(.class = "zoom", .tags = 1 << 3, .switchtag = 1, .isfloating = 1)
