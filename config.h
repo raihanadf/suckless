@@ -182,6 +182,7 @@ static const Rule rules[] = {
 	RULE(.class = "Thunar", .tags = 1 << 1, .switchtag = 1, .iscentered = 1) // tag-2
 
 	RULE(.class = "Chromium", .tags = 1 << 2, .switchtag = 1, .iscentered = 1) // tag-3
+	RULE(.class = "Google-chrome", .tags = 1 << 2, .switchtag = 1, .iscentered = 1) // tag-3
 	RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
 	RULE(.class = "Microsoft-edge", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
 
