@@ -97,6 +97,8 @@ static char *colors[][ColCount] = {
 static const char *const autostart[] = {
 	"nitrogen", "--restore", NULL,
 	"sxhkd", NULL,
+	"discord", "--start-minimized", NULL,
+	"steam", "-silent", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/autostart.sh", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/batteryCheck.sh", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/udiskie.sh", NULL,
