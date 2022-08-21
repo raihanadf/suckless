@@ -36,43 +36,43 @@ static char c000000[]                    = "#000000"; // placeholder value
 //
 //static char c000000[]                    = "#000000"; // placeholder value
 
-static char normfgcolor[]                = "#ebdbb2";
-static char normbgcolor[]                = "#05080a";
+static char normfgcolor[]                = "#faedff";
+static char normbgcolor[]                = "#05080a"; // statusbar bg
 static char normbordercolor[]            = "#0A0D0F";
-static char normfloatcolor[]             = "#98971a";
+static char normfloatcolor[]             = "#0A0D0F";
 
 static char selfgcolor[]                 = "#eeeeee";
 static char selbgcolor[]                 = "#005577";
-static char selbordercolor[]             = "#282828";
-static char selfloatcolor[]              = "#005577";
+static char selbordercolor[]             = "#faedff";
+static char selfloatcolor[]              = "#faedff";
 
-static char titlenormfgcolor[]           = "#5e5848";
-static char titlenormbgcolor[]           = "#282828";
+static char titlenormfgcolor[]           = "#afaeb0";
+static char titlenormbgcolor[]           = "#05080a";
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
-static char titleselfgcolor[]            = "#ebdbb2";
-static char titleselbgcolor[]            = "#282828";
+static char titleselfgcolor[]            = "#05080a";
+static char titleselbgcolor[]            = "#faedff";
 static char titleselbordercolor[]        = "#005577";
 static char titleselfloatcolor[]         = "#005577";
 
-static char tagsnormfgcolor[]            = "#ebdbb2";
-static char tagsnormbgcolor[]            = "#222222";
+static char tagsnormfgcolor[]            = "#faedff";
+static char tagsnormbgcolor[]            = "#05080a";
 static char tagsnormbordercolor[]        = "#444444";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
-static char tagsselfgcolor[]             = "#FFFFFF";
-static char tagsselbgcolor[]             = "#00008b";
+static char tagsselfgcolor[]             = "#faedff";
+static char tagsselbgcolor[]             = "#0027a6";
 static char tagsselbordercolor[]         = "#005577";
 static char tagsselfloatcolor[]          = "#005577";
 
 static char hidnormfgcolor[]             = "#005577";
 static char hidselfgcolor[]              = "#0420bd";
-static char hidnormbgcolor[]             = "#282828";
+static char hidnormbgcolor[]             = "#05080a";
 static char hidselbgcolor[]              = "#282828";
 
 static char urgfgcolor[]                 = "#bbbbbb";
-static char urgbgcolor[]                 = "#222222";
+static char urgbgcolor[]                 = "#870e00";
 static char urgbordercolor[]             = "#ff0000";
 static char urgfloatcolor[]              = "#db8fd9";
 //
@@ -99,6 +99,7 @@ static const char *const autostart[] = {
 	"sxhkd", NULL,
 	"discord", "--start-minimized", NULL,
 	"steam", "-silent", NULL,
+	/* "picom", "--experimental-backend", "--backend", "glx", "--xrender-sync-fence", NULL, */
 	"sh","-c","$HOME/.dotfiles/scripts/autostart.sh", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/batteryCheck.sh", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/udiskie.sh", NULL,
