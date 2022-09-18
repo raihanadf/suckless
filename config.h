@@ -1,12 +1,12 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx       = 3;   /* border pixel of windows */
+static const unsigned int borderpx       = 2;   /* border pixel of windows */
 static const unsigned int snap           = 32;  /* snap pixel */
 static const unsigned int gappih         = 10;  /* horiz inner gap between windows */
 static const unsigned int gappiv         = 10;  /* vert inner gap between windows */
-static const unsigned int gappoh         = 8;  /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov         = 24;  /* vert outer gap between windows and screen edge */
+static const unsigned int gappoh         = 10;  /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov         = 30;  /* vert outer gap between windows and screen edge */
 static const int smartgaps_fact          = 1;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
 static const int showbar                 = 1;   /* 0 means no bar */
 static const int topbar                  = 1;   /* 0 means bottom bar */
@@ -14,9 +14,9 @@ static const int bar_height              = 0;   /* 0 means derive from font, >= 
 static const int focusonwheel            = 0;
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
-static const char buttonbar[]            = "󰀻";
+static const char buttonbar[]            = "󰣇  ( =ω=)";
 static const unsigned int systrayspacing = 1;   /* systray spacing */
-static const int showsystray             = 1;   /* 0 means no systray */
+static const int showsystray             = 0;   /* 0 means no systray */
 static const unsigned int ulinepad = 15;         /* horizontal padding between the underline and tag */
 static const unsigned int ulinestroke  = 0;     /* thickness / height of the underline */
 static const unsigned int ulinevoffset = -2;     /* how far above the bottom of the bar the line should appear */
@@ -61,8 +61,8 @@ static char tagsnormbgcolor[]            = "#05080a";
 static char tagsnormbordercolor[]        = "#444444";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
-static char tagsselfgcolor[]             = "#faedff";
-static char tagsselbgcolor[]             = "#0027a6";
+static char tagsselfgcolor[]             = "#05080a";
+static char tagsselbgcolor[]             = "#faedff";
 static char tagsselbordercolor[]         = "#005577";
 static char tagsselfloatcolor[]          = "#005577";
 
