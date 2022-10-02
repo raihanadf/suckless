@@ -100,6 +100,7 @@ static const char *const autostart[] = {
 	/* "discord", "--start-minimized", NULL, */
 	/* "steam", "-silent", NULL, */
 	/* "picom", "--experimental-backend", "--backend", "glx", "--xrender-sync-fence", NULL, */
+	"xrdb","-merge","$HOME/.Xresources", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/autostart.sh", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/batteryCheck.sh", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/udiskie.sh", NULL,
