@@ -3,7 +3,6 @@
 #include "bar_tagicons.c"
 #include "bar.c"
 
-#include "bar_ewmhtags.c"
 #include "combo.c"
 #include "bar_ltsymbol.c"
 #include "bar_status.c"
@@ -19,6 +18,7 @@
 #include "attachx.c"
 #include "cool_autostart.c"
 #include "cyclelayouts.c"
+#include "pertag.c"
 #include "restartsig.c"
 #include "vanitygaps.c"
 #include "zoomswap.c"

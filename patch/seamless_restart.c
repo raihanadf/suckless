@@ -37,6 +37,7 @@ restoreclientstate(Client *c)
 
 void setmonitorfields(Monitor *m)
 {
+	unsigned int i;
 	char atom[22] = {0};
 	Atom monitor_fields;
 
@@ -58,14 +59,16 @@ void setmonitorfields(Monitor *m)
 	 * | |-- reserved
 	 * |-- showbar
 	 */
-	uint32_t data[] = {
-		(m->nmaster & 0x7) |
-		(getlayoutindex(m->lt[m->sellt]) & 0xF) << 6 |
-		m->showbar << 31
-	};
+	for (i = 0; i <= NUMTAGS; i++) {
+		uint32_t data[] = {
+			(m->pertag->nmasters[i] & 0x7) |
+			(getlayoutindex(m->pertag->ltidxs[i][m->pertag->sellts[i]]) & 0xF) << 6 |
+			m->showbar << 31
+		};
 
-	XChangeProperty(dpy, root, monitor_fields, XA_CARDINAL, 32, PropModeReplace,
-		(unsigned char *)data, 1);
+		XChangeProperty(dpy, root, monitor_fields, XA_CARDINAL, 32,
+			i ? PropModeAppend : PropModeReplace, (unsigned char *)data, 1);
+	}
 }
 
 int
@@ -83,6 +86,8 @@ int
 getmonitorfields(Monitor *m)
 {
 	int di, layout_index;
+	unsigned int i, restored = 0;
+	unsigned int tags = m->tagset[m->seltags] << 1;
 	unsigned long dl, nitems;
 	unsigned char *p = NULL;
 	char atom[22] = {0};
@@ -93,24 +98,37 @@ getmonitorfields(Monitor *m)
 	if (!dwm_monitor)
 		return 0;
 
-	if (!(XGetWindowProperty(dpy, root, dwm_monitor, 0L, sizeof dl,
-			False, AnyPropertyType, &da, &di, &nitems, &dl, &p) == Success && p)) {
-		return 0;
-	}
+	for (i = 0; i <= NUMTAGS; i++) {
+		if (!(XGetWindowProperty(dpy, root, dwm_monitor, i, (NUMTAGS + 1) * sizeof dl,
+				False, AnyPropertyType, &da, &di, &nitems, &dl, &p) == Success && p)) {
+			break;
+		}
 
-	if (nitems) {
-		state = *(Atom *)p;
+		if (!nitems) {
+			XFree(p);
+			break;
+		}
 
 		/* See bit layout in the persistmonitorstate function */
-		m->nmaster = state & 0x7;
+		state = *(Atom *)p;
+
+		m->pertag->nmasters[i] = state & 0x7;
 		layout_index = (state >> 6) & 0xF;
 		if (layout_index < LENGTH(layouts))
-			m->lt[m->sellt] = &layouts[layout_index];
-		m->showbar = (state >> 31) & 0x1;
+			m->pertag->ltidxs[i][m->pertag->sellts[i]] = &layouts[layout_index];
+
+		if (!restored && i && (tags & (1 << i))) {
+			m->nmaster = m->pertag->nmasters[i];
+			m->sellt = m->pertag->sellts[i];
+			m->lt[m->sellt] = m->pertag->ltidxs[i][m->sellt];
+			m->showbar = (state >> 31) & 0x1;
+			restored = 1;
+		}
+
+		XFree(p);
 	}
 
-	XFree(p);
-	return 1;
+	return restored;
 }
 
 void

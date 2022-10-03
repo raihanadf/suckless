@@ -3,7 +3,6 @@
 #include "bar_tagicons.h"
 #include "bar.h"
 
-#include "bar_ewmhtags.h"
 #include "combo.h"
 #include "bar_ltsymbol.h"
 #include "bar_status.h"
@@ -19,6 +18,7 @@
 #include "attachx.h"
 #include "cool_autostart.h"
 #include "cyclelayouts.h"
+#include "pertag.h"
 #include "restartsig.h"
 #include "seamless_restart.h"
 #include "vanitygaps.h"

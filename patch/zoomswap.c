@@ -1,5 +1,4 @@
 
-static Client *prevzoom = NULL;
 
 Client *
 findbefore(Client *c) {

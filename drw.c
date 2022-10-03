@@ -8,6 +8,7 @@
 #include "drw.h"
 #include "util.h"
 
+
 #define UTF_INVALID 0xFFFD
 #define UTF_SIZ     4
 
@@ -259,7 +260,7 @@ drw_rect(Drw *drw, int x, int y, unsigned int w, unsigned int h, int filled, int
 }
 
 int
-drw_text(Drw *drw, int x, int y, unsigned int w, unsigned int h, unsigned int lpad, const char *text, int invert, Bool ignored)
+drw_text(Drw *drw, int x, int y, unsigned int w, unsigned int h, unsigned int lpad, const char *text, int invert, Bool markup)
 {
 	char buf[1024];
 	int ty;
@@ -388,6 +389,7 @@ drw_text(Drw *drw, int x, int y, unsigned int w, unsigned int h, unsigned int lp
 
 	return x + (render ? w : 0);
 }
+
 
 
 void
