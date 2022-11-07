@@ -14,7 +14,7 @@ static const int bar_height              = 0;   /* 0 means derive from font, >= 
 static const int focusonwheel            = 0;
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
-static const char buttonbar[]            = "󰣇  ( =ω=)";
+static const char buttonbar[]            = "󰣇 ";
 static const unsigned int systrayspacing = 1;   /* systray spacing */
 static const int showsystray             = 0;   /* 0 means no systray */
 static const unsigned int ulinepad = 15;         /* horizontal padding between the underline and tag */
@@ -46,13 +46,13 @@ static char selbgcolor[]                 = "#005577";
 static char selbordercolor[]             = "#faedff";
 static char selfloatcolor[]              = "#faedff";
 
-static char titlenormfgcolor[]           = "#afaeb0";
+static char titlenormfgcolor[]           = "#454545";
 static char titlenormbgcolor[]           = "#05080a";
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
-static char titleselfgcolor[]            = "#05080a";
-static char titleselbgcolor[]            = "#faedff";
+static char titleselfgcolor[]            = "#faedff";
+static char titleselbgcolor[]            = "#05080a";
 static char titleselbordercolor[]        = "#005577";
 static char titleselfloatcolor[]         = "#005577";
 
@@ -200,6 +200,8 @@ static const Rule rules[] = {
 	RULE(.class = "calibre", .tags = 1 << 4, .switchtag = 1) // tag-5
 	RULE(.class = "Steam", .tags = 1 << 4, .isfloating = 1) // tag-5
 
+  //
+	RULE(.class = "Discord", .tags = 1 << 4, .isfloating = 1) // tag-5
 	RULE(.class = "KotatogramDesktop", .tags = 1 << 5, .switchtag = 1) // tag-6
 	
 	RULE(.class = "Ryujinx", .tags = 1 << 6, .switchtag = 1, .isfloating = 1) // tag-6
@@ -275,7 +277,7 @@ static const char *dmenucmd[] = {
 	"-sf", selfgcolor,
 	NULL
 };
-static const char *roficmd[] = { "rofi", "-show", "drun", "-show-icons", NULL };
+static const char *roficmd[] = { "rofi", "-show", "drun", "-sorting-method", "fzf", "-sort", "-matching", "fuzzy", NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
 
