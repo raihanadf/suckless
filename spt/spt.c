@@ -68,8 +68,9 @@ notify_send(char *cmt)
 #ifdef NOTIFY
 	else {
 		notify_init("spt");
-		NotifyNotification *n = notify_notification_new("spt", cmt, \
+		NotifyNotification *n = notify_notification_new("POMO!", cmt, \
 					"dialog-information");
+    notify_notification_set_urgency (n, NOTIFY_URGENCY_CRITICAL);
 		notify_notification_show(n, NULL);
 		g_object_unref(G_OBJECT(n));
 		notify_uninit();
