@@ -6,7 +6,7 @@ static const unsigned int snap           = 32;  /* snap pixel */
 static const unsigned int gappih         = 10;  /* horiz inner gap between windows */
 static const unsigned int gappiv         = 10;  /* vert inner gap between windows */
 static const unsigned int gappoh         = 10;  /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov         = 30;  /* vert outer gap between windows and screen edge */
+static const unsigned int gappov         = 15;  /* vert outer gap between windows and screen edge */
 static const int smartgaps_fact          = 1;   /* gap factor when there is only one client; 0 = no gaps, 3 = 3x outer gaps */
 static const int showbar                 = 1;   /* 0 means no bar */
 static const int topbar                  = 1;   /* 0 means bottom bar */
@@ -37,7 +37,7 @@ static char c000000[]                    = "#000000"; // placeholder value
 //static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#faedff";
-static char normbgcolor[]                = "#05080a"; // statusbar bg
+static char normbgcolor[]                = "#1a1a1a"; // statusbar bg
 static char normbordercolor[]            = "#0A0D0F";
 static char normfloatcolor[]             = "#0A0D0F";
 
@@ -51,13 +51,13 @@ static char titlenormbgcolor[]           = "#05080a";
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
-static char titleselfgcolor[]            = "#faedff";
-static char titleselbgcolor[]            = "#05080a";
+static char titleselfgcolor[]            = "#05080a";
+static char titleselbgcolor[]            = "#faedff";
 static char titleselbordercolor[]        = "#005577";
 static char titleselfloatcolor[]         = "#005577";
 
 static char tagsnormfgcolor[]            = "#faedff";
-static char tagsnormbgcolor[]            = "#05080a";
+static char tagsnormbgcolor[]            = "#1a1a1a";
 static char tagsnormbordercolor[]        = "#444444";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
@@ -201,7 +201,7 @@ static const Rule rules[] = {
 	RULE(.class = "Steam", .tags = 1 << 4, .isfloating = 1) // tag-5
 
   //
-	RULE(.class = "Discord", .tags = 1 << 4, .isfloating = 1) // tag-5
+	RULE(.class = "discord", .tags = 1 << 5) // tag-5
 	RULE(.class = "KotatogramDesktop", .tags = 1 << 5, .switchtag = 1) // tag-6
 	
 	RULE(.class = "Ryujinx", .tags = 1 << 6, .switchtag = 1, .isfloating = 1) // tag-6
@@ -242,7 +242,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
+  /* first entry is default */
+	{ "[]=",      tile },    
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "[D]",      deck },
