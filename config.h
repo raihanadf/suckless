@@ -68,8 +68,8 @@ static char tagsselfloatcolor[]          = "#005577";
 
 static char hidnormfgcolor[]             = "#005577";
 static char hidselfgcolor[]              = "#0420bd";
-static char hidnormbgcolor[]             = "#05080a";
-static char hidselbgcolor[]              = "#282828";
+static char hidnormbgcolor[]             = "#1a1a1a";
+static char hidselbgcolor[]              = "#1a1a1a";
 
 static char urgfgcolor[]                 = "#bbbbbb";
 static char urgbgcolor[]                 = "#870e00";
