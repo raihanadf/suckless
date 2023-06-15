@@ -439,7 +439,8 @@ applyrules(Client *c)
 	instance = ch.res_name  ? ch.res_name  : broken;
 	wintype  = getatomprop(c, netatom[NetWMWindowType], XA_ATOM);
 
-	if (strstr(class, "Steam") || strstr(class, "steam_app_"))
+	if (strstr(class, "steamwebhelper") || strstr(class, "steam") ||
+		strstr(class, "Steam") || strstr(class, "steam_app_"))
 		c->issteam = 1;
 
 	for (i = 0; i < LENGTH(rules); i++) {
