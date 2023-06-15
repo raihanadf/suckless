@@ -28,7 +28,7 @@ static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const int quit_empty_window_count = 0;   /* only allow dwm to quit if no (<= count) windows are open */
 static const char *fonts[]               = { 
-	"SF Pro Display:style=Medium:size=14", 
+	"SF Pro Display:style=Bold:size=14", 
 	"Material Design Icons Desktop:size=15" };
 static const char dmenufont[]            = "monospace:size=10";
 
@@ -97,6 +97,7 @@ static char *colors[][ColCount] = {
 static const char *const autostart[] = {
 	"nitrogen", "--restore", NULL,
 	"sxhkd", NULL,
+	"vibrantLinux", "--hidden", NULL,
 	/* "discord", "--start-minimized", NULL, */
 	/* "steam", "-silent", NULL, */
 	/* "picom", "--experimental-backend", "--backend", "glx", "--xrender-sync-fence", NULL, */
@@ -198,7 +199,10 @@ static const Rule rules[] = {
 	RULE(.class = "qBittorrent", .tags = 1 << 3, .switchtag = 1)
 
 	RULE(.class = "calibre", .tags = 1 << 4, .switchtag = 1) // tag-5
+	// maybe can be grouped using regex idk
 	RULE(.class = "Steam", .tags = 1 << 4, .isfloating = 1) // tag-5
+	RULE(.class = "steam", .tags = 1 << 4, .isfloating = 1) // tag-5
+	RULE(.class = "steamwebhelper", .tags = 1 << 4, .isfloating = 1) // tag-5
 
   //
 	RULE(.class = "discord", .tags = 1 << 5) // tag-5
