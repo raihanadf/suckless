@@ -200,9 +200,9 @@ static const Rule rules[] = {
 
 	RULE(.class = "calibre", .tags = 1 << 4, .switchtag = 1) // tag-5
 	// maybe can be grouped using regex idk
-	RULE(.class = "Steam", .tags = 1 << 4, .isfloating = 1) // tag-5
-	RULE(.class = "steam", .tags = 1 << 4, .isfloating = 1) // tag-5
-	RULE(.class = "steamwebhelper", .tags = 1 << 4, .isfloating = 1) // tag-5
+	RULE(.class = "Steam", .tags = 1 << 4) // tag-5
+	RULE(.class = "steam", .tags = 1 << 4) // tag-5
+	RULE(.class = "steamwebhelper", .tags = 1 << 4) // tag-5
 
   //
 	RULE(.class = "discord", .tags = 1 << 5) // tag-5
