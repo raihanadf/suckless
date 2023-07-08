@@ -196,13 +196,13 @@ static const Rule rules[] = {
 	RULE(.class = "Spotify", .tags = 1 << 3, .switchtag = 1)
 	RULE(.class = "spotify", .tags = 1 << 3, .switchtag = 1)
 	RULE(.class = "obs", .tags = 1 << 3, .switchtag = 1, .iscentered = 1)
-	RULE(.class = "qBittorrent", .tags = 1 << 3, .switchtag = 1)
+	RULE(.class = "qBittorrent", .tags = 1 << 6, .switchtag = 1)
 
 	RULE(.class = "calibre", .tags = 1 << 4, .switchtag = 1) // tag-5
 	// maybe can be grouped using regex idk
-	RULE(.class = "Steam", .tags = 1 << 4) // tag-5
-	RULE(.class = "steam", .tags = 1 << 4) // tag-5
-	RULE(.class = "steamwebhelper", .tags = 1 << 4) // tag-5
+	RULE(.class = "Steam", .tags = 1 << 4, .isfloating = 1) // tag-5
+	RULE(.class = "steam", .tags = 1 << 4, .isfloating = 1) // tag-5
+	RULE(.class = "steamwebhelper", .tags = 1 << 4, .isfloating = 1) // tag-5
 
   //
 	RULE(.class = "discord", .tags = 1 << 5) // tag-5

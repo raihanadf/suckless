@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#define _GNU_SOURCE
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,7 +32,7 @@ volatile static sig_atomic_t display, suspend;
 static void die(const char *errstr, ...);
 static void spawn(char *argv[]);
 static void notify_send(char *cmt);
-static void display_state(int remaining, int suspend);
+/* static void display_state(int remaining, int suspend); */
 static void toggle_display(int sigint);
 static void toggle_suspend(int sigint);
 static void usage(void);
@@ -68,7 +69,7 @@ notify_send(char *cmt)
 #ifdef NOTIFY
 	else {
 		notify_init("spt");
-		NotifyNotification *n = notify_notification_new("POMO!", cmt, \
+		NotifyNotification *n = notify_notification_new("POMODORO!", cmt, \
 					"dialog-information");
     notify_notification_set_urgency (n, NOTIFY_URGENCY_CRITICAL);
 		notify_notification_show(n, NULL);
@@ -86,12 +87,11 @@ display_state(int remaining, int suspend)
 {
 	char buf[29];
 
-	snprintf(buf, 29, "Remaining: %02d:%02d %s",
+	snprintf(buf, 29, "%02d:%02d %s",
 		 remaining / 60,
 		 remaining % 60,
 		 (suspend) ? "◼" : "▶");
-
-	notify_send(buf);
+	printf("%s\n", buf);
 	display = 0;
 }
 
