@@ -197,6 +197,7 @@ struct Client {
 	float mina, maxa;
 	int x, y, w, h;
 	unsigned int idx;
+	int sfx, sfy, sfw, sfh; /* stored float geometry, used on mode revert */
 	int oldx, oldy, oldw, oldh;
 	int basew, baseh, incw, inch, maxw, maxh, minw, minh, hintsvalid;
 	int bw, oldbw;
@@ -1228,6 +1229,10 @@ focus(Client *c)
 			seturgent(c, 0);
 		detachstack(c);
 		attachstack(c);
+		c->sfx = c->x;
+		c->sfy = c->y;
+		c->sfw = c->w;
+		c->sfh = c->h;
 		grabbuttons(c, 1);
 		if (c->isfloating)
 			XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColFloat].pixel);
@@ -2236,9 +2241,16 @@ togglefloating(const Arg *arg)
 		XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColFloat].pixel);
 	else
 		XSetWindowBorder(dpy, c->win, scheme[SchemeSel][ColBorder].pixel);
-	if (c->isfloating) {
-		resize(c, c->x, c->y, c->w, c->h, 0);
-	}
+	if (c->isfloating)
+		resize(c, c->sfx, c->sfy, c->sfw, c->sfh, 0);
+	else {
+			/*save last known float dimensions*/
+			c->sfx = c->x;
+			c->sfy = c->y;
+			c->sfw = c->w;
+			c->sfh = c->h;
+		}
+
 	arrange(c->mon);
 
 }
@@ -2590,7 +2602,8 @@ updatestatus(void)
 {
 	Monitor *m;
 	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
-		strcpy(stext, "dwm-"VERSION);
+		/* strcpy(stext, "dwm-"VERSION); */
+		strcpy(stext, "Welcomeeee!!");
 	for (m = mons; m; m = m->next)
 		drawbar(m);
 }

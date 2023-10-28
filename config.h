@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx       = 2;   /* border pixel of windows */
+static const unsigned int borderpx       = 1;   /* border pixel of windows */
 static const unsigned int snap           = 32;  /* snap pixel */
 static const unsigned int gappih         = 10;  /* horiz inner gap between windows */
 static const unsigned int gappiv         = 10;  /* vert inner gap between windows */
@@ -14,7 +14,7 @@ static const int bar_height              = 0;   /* 0 means derive from font, >= 
 static const int focusonwheel            = 0;
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
-static const char buttonbar[]            = "󰣇 ";
+static const char buttonbar[]            = "󰫢 ";
 static const unsigned int systrayspacing = 1;   /* systray spacing */
 static const int showsystray             = 0;   /* 0 means no systray */
 static const unsigned int ulinepad = 15;         /* horizontal padding between the underline and tag */
@@ -28,8 +28,10 @@ static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const int quit_empty_window_count = 0;   /* only allow dwm to quit if no (<= count) windows are open */
 static const char *fonts[]               = { 
-	"SF Pro Display:style=Bold:size=14", 
-	"Material Design Icons Desktop:size=15" };
+	"Scientifica:style=Bold:size=16", 
+	"Material Design Icons Desktop:size=14",
+	"Iosevka NF:size=14" 
+};
 static const char dmenufont[]            = "monospace:size=10";
 
 static char c000000[]                    = "#000000"; // placeholder value
@@ -37,9 +39,9 @@ static char c000000[]                    = "#000000"; // placeholder value
 //static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#faedff";
-static char normbgcolor[]                = "#1a1a1a"; // statusbar bg
-static char normbordercolor[]            = "#0A0D0F";
-static char normfloatcolor[]             = "#0A0D0F";
+static char normbgcolor[]                = "#161616"; // statusbar bg
+static char normbordercolor[]            = "#161616";
+static char normfloatcolor[]             = "#161616";
 
 static char selfgcolor[]                 = "#eeeeee";
 static char selbgcolor[]                 = "#005577";
@@ -47,29 +49,29 @@ static char selbordercolor[]             = "#faedff";
 static char selfloatcolor[]              = "#faedff";
 
 static char titlenormfgcolor[]           = "#454545";
-static char titlenormbgcolor[]           = "#05080a";
+static char titlenormbgcolor[]           = "#161616";
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
-static char titleselfgcolor[]            = "#05080a";
+static char titleselfgcolor[]            = "#161616";
 static char titleselbgcolor[]            = "#faedff";
 static char titleselbordercolor[]        = "#005577";
 static char titleselfloatcolor[]         = "#005577";
 
 static char tagsnormfgcolor[]            = "#faedff";
-static char tagsnormbgcolor[]            = "#1a1a1a";
+static char tagsnormbgcolor[]            = "#161616";
 static char tagsnormbordercolor[]        = "#444444";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
-static char tagsselfgcolor[]             = "#05080a";
+static char tagsselfgcolor[]             = "#161616";
 static char tagsselbgcolor[]             = "#faedff";
 static char tagsselbordercolor[]         = "#005577";
 static char tagsselfloatcolor[]          = "#005577";
 
 static char hidnormfgcolor[]             = "#005577";
 static char hidselfgcolor[]              = "#0420bd";
-static char hidnormbgcolor[]             = "#1a1a1a";
-static char hidselbgcolor[]              = "#1a1a1a";
+static char hidnormbgcolor[]             = "#161616";
+static char hidselbgcolor[]              = "#161616";
 
 static char urgfgcolor[]                 = "#bbbbbb";
 static char urgbgcolor[]                 = "#870e00";
@@ -92,19 +94,14 @@ static char *colors[][ColCount] = {
 	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgfloatcolor },
 };
 
-
-
 static const char *const autostart[] = {
+	"xrdb","-load","$HOME/.Xresources", NULL,
+	"xss-lock","--","slock", NULL,
+	"sh","-c","$HOME/.dotfiles/scripts/autostart.sh", NULL,
+	"sh","-c","$HOME/.dotfiles/scripts/batteryCheck.sh", NULL,
 	"nitrogen", "--restore", NULL,
 	"sxhkd", NULL,
 	"vibrantLinux", "--hidden", NULL,
-	/* "discord", "--start-minimized", NULL, */
-	/* "steam", "-silent", NULL, */
-	/* "picom", "--experimental-backend", "--backend", "glx", "--xrender-sync-fence", NULL, */
-	"xrdb","-merge","$HOME/.Xresources", NULL,
-	"sh","-c","$HOME/.dotfiles/scripts/autostart.sh", NULL,
-	"sh","-c","$HOME/.dotfiles/scripts/batteryCheck.sh", NULL,
-	"sh","-c","$HOME/.dotfiles/scripts/udiskie.sh", NULL,
 	NULL /* terminate */
 };
 
@@ -177,39 +174,26 @@ static const Rule rules[] = {
 	RULE(.class = "Gpick", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Lxappearance", .isfloating = 1, .iscentered = 1)
 
-	/* RULE(.class = "Alacritty", .tags = 1 << 0, .switchtag = 1) // tag-1 */
-	/* RULE(.class = "st-256color", .tags = 1 << 0, .switchtag = 1) // tag-1 */
-	/* RULE(.class = "Emacs", .tags = 1 << 0, .switchtag = 1) */
-	/* RULE(.class = "Geany", .tags = 1 << 0, .switchtag = 1) */
-
 	RULE(.class = "Code", .tags = 1 << 1, .switchtag = 1) // tag-2
 	RULE(.class = "jetbrains-studio", .tags = 1 << 1, .switchtag = 1) // tag-2
-	RULE(.class = "Thunar", .tags = 1 << 1, .switchtag = 1, .iscentered = 1) // tag-2
 
 	RULE(.class = "Chromium", .tags = 1 << 2, .switchtag = 1, .iscentered = 1) // tag-3
 	RULE(.class = "Google-chrome", .tags = 1 << 2, .switchtag = 1, .iscentered = 1) // tag-3
 	RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
 	RULE(.class = "Microsoft-edge", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
 
-	RULE(.class = "Gimp", .tags = 1 << 3, .switchtag = 1, .isfloating = 1, .iscentered = 1) // tag-4
-	RULE(.class = "zoom", .tags = 1 << 3, .switchtag = 1, .isfloating = 1)
 	RULE(.class = "Spotify", .tags = 1 << 3, .switchtag = 1)
 	RULE(.class = "spotify", .tags = 1 << 3, .switchtag = 1)
-	RULE(.class = "obs", .tags = 1 << 3, .switchtag = 1, .iscentered = 1)
-	RULE(.class = "qBittorrent", .tags = 1 << 6, .switchtag = 1)
 
 	RULE(.class = "calibre", .tags = 1 << 4, .switchtag = 1) // tag-5
-	// maybe can be grouped using regex idk
+
 	RULE(.class = "Steam", .tags = 1 << 4, .isfloating = 1) // tag-5
 	RULE(.class = "steam", .tags = 1 << 4, .isfloating = 1) // tag-5
 	RULE(.class = "steamwebhelper", .tags = 1 << 4, .isfloating = 1) // tag-5
 
-  //
-	RULE(.class = "discord", .tags = 1 << 5) // tag-5
-	RULE(.class = "KotatogramDesktop", .tags = 1 << 5, .switchtag = 1) // tag-6
+	RULE(.class = "discord", .tags = 1 << 5) // tag-6
 	
-	RULE(.class = "Ryujinx", .tags = 1 << 6, .switchtag = 1, .isfloating = 1) // tag-6
-	RULE(.class = "yuzu", .tags = 1 << 6, .switchtag = 1, .isfloating = 1) // tag-6
+	// RULE(.class = "zoom", .tags = 1 << 6, .switchtag = 0, .isfloating = 1)
 };
 
 
@@ -249,9 +233,9 @@ static const Layout layouts[] = {
   /* first entry is default */
 	{ "[]=",      tile },    
 	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	// { "[M]",      monocle },
 	{ "[D]",      deck },
-	{ "[\\]",     dwindle },
+	// { "[\\]",     dwindle },
 	{ "---",      horizgrid },
 	{ NULL,       NULL },
 };
