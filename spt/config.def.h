@@ -10,12 +10,12 @@ static char *notifyext = ""; /* Notify with extra command (eg. play an alarm) */
  */
 static Timers timers[] = {
 	/* timer(s)  comment */
-	{     1500,  "Time to start working!"},
-	{      300,  "Time to start resting!"},
-	{     1500,  "Time to start working!"},
-	{      300,  "Time to start resting!"},
-	{     1500,  "Time to start working!"},
-	{      300,  "Time to start resting!"},
-	{     1500,  "Time to start working!"},
-	{      900,  "Time to take a nap!"   },
+	{     1500,  "WORK WORK WORK"},
+	{      300,  "Rest man"},
+	{     1500,  "WORK WORK WORK"},
+	{      300,  "Rest man"},
+	{     1500,  "WORK WORK WORK"},
+	{      300,  "Rest man"},
+	{     1500,  "WORK WORK WORK"},
+	{      900,  "you should now rest :("   },
 };
