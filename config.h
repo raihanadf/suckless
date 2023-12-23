@@ -28,7 +28,7 @@ static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const int quit_empty_window_count = 0;   /* only allow dwm to quit if no (<= count) windows are open */
 static const char *fonts[]               = { 
-	"Scientifica:style=Bold:size=14", 
+	"Scientifica:size=14", 
 	"Material Design Icons Desktop:size=14",
 	"Iosevka NF:size=14" 
 };
@@ -39,39 +39,39 @@ static char c000000[]                    = "#000000"; // placeholder value
 //static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#faedff";
-static char normbgcolor[]                = "#161616"; // statusbar bg
-static char normbordercolor[]            = "#161616";
-static char normfloatcolor[]             = "#161616";
+static char normbgcolor[]                = "#000000"; // statusbar bg
+static char normbordercolor[]            = "#000000";
+static char normfloatcolor[]             = "#000000";
 
 static char selfgcolor[]                 = "#eeeeee";
 static char selbgcolor[]                 = "#005577";
 static char selbordercolor[]             = "#faedff";
 static char selfloatcolor[]              = "#faedff";
 
-static char titlenormfgcolor[]           = "#454545";
-static char titlenormbgcolor[]           = "#161616";
+static char titlenormfgcolor[]           = "#e2dde4";
+static char titlenormbgcolor[]           = "#faedff";
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
 
-static char titleselfgcolor[]            = "#161616";
+static char titleselfgcolor[]            = "#000000";
 static char titleselbgcolor[]            = "#faedff";
 static char titleselbordercolor[]        = "#005577";
 static char titleselfloatcolor[]         = "#005577";
 
 static char tagsnormfgcolor[]            = "#faedff";
-static char tagsnormbgcolor[]            = "#161616";
+static char tagsnormbgcolor[]            = "#000000";
 static char tagsnormbordercolor[]        = "#444444";
 static char tagsnormfloatcolor[]         = "#db8fd9";
 
-static char tagsselfgcolor[]             = "#161616";
+static char tagsselfgcolor[]             = "#000000";
 static char tagsselbgcolor[]             = "#faedff";
 static char tagsselbordercolor[]         = "#005577";
 static char tagsselfloatcolor[]          = "#005577";
 
 static char hidnormfgcolor[]             = "#005577";
 static char hidselfgcolor[]              = "#0420bd";
-static char hidnormbgcolor[]             = "#161616";
-static char hidselbgcolor[]              = "#161616";
+static char hidnormbgcolor[]             = "#faedff";
+static char hidselbgcolor[]              = "#faedff";
 
 static char urgfgcolor[]                 = "#bbbbbb";
 static char urgbgcolor[]                 = "#870e00";
@@ -171,8 +171,13 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 
+
 	RULE(.class = "Gpick", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Lxappearance", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "Sxiv", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "Nitrogen", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "Thunar", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "Zathura", .isfloating = 1, .iscentered = 1)
 
 	RULE(.class = "Code", .tags = 1 << 1, .switchtag = 1) // tag-2
 	RULE(.class = "jetbrains-studio", .tags = 1 << 1, .switchtag = 1) // tag-2
@@ -187,13 +192,13 @@ static const Rule rules[] = {
 
 	RULE(.class = "calibre", .tags = 1 << 4, .switchtag = 1) // tag-5
 
-	RULE(.class = "Steam", .tags = 1 << 4, .isfloating = 1) // tag-5
-	RULE(.class = "steam", .tags = 1 << 4, .isfloating = 1) // tag-5
-	RULE(.class = "steamwebhelper", .tags = 1 << 4, .isfloating = 1) // tag-5
+	RULE(.class = "Steam", .tags = 1 << 4, .isfloating = 1, .iscentered = 1) // tag-5
+	RULE(.class = "steam", .tags = 1 << 4, .isfloating = 1, .iscentered = 1) // tag-5
+	RULE(.class = "steamwebhelper", .tags = 1 << 4, .isfloating = 1, .iscentered = 1 ) // tag-5
 
 	RULE(.class = "discord", .tags = 1 << 5) // tag-6
 	
-	// RULE(.class = "zoom", .tags = 1 << 6, .switchtag = 0, .isfloating = 1)
+	RULE(.class = "zoom", .switchtag = 0, .isfloating = 1, .iscentered = 1)
 };
 
 
