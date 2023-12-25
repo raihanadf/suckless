@@ -178,6 +178,7 @@ static const Rule rules[] = {
 	RULE(.class = "Nitrogen", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Thunar", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Zathura", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "Xarchiver", .isfloating = 1, .iscentered = 1)
 
 	RULE(.class = "Code", .tags = 1 << 1, .switchtag = 1) // tag-2
 	RULE(.class = "jetbrains-studio", .tags = 1 << 1, .switchtag = 1) // tag-2
