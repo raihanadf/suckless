@@ -48,7 +48,7 @@ static char selbgcolor[]                 = "#005577";
 static char selbordercolor[]             = "#faedff";
 static char selfloatcolor[]              = "#faedff";
 
-static char titlenormfgcolor[]           = "#e2dde4";
+static char titlenormfgcolor[]           = "#9c9c9c";
 static char titlenormbgcolor[]           = "#faedff";
 static char titlenormbordercolor[]       = "#444444";
 static char titlenormfloatcolor[]        = "#db8fd9";
@@ -179,6 +179,7 @@ static const Rule rules[] = {
 	RULE(.class = "Thunar", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Zathura", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Xarchiver", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "vlc", .isfloating = 1, .iscentered = 1)
 
 	RULE(.class = "Code", .tags = 1 << 1, .switchtag = 1) // tag-2
 	RULE(.class = "jetbrains-studio", .tags = 1 << 1, .switchtag = 1) // tag-2
