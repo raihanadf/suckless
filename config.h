@@ -14,7 +14,8 @@ static const int bar_height              = 0;   /* 0 means derive from font, >= 
 static const int focusonwheel            = 0;
 /* Status is to be shown on: -1 (all monitors), 0 (a specific monitor by index), 'A' (active monitor) */
 static const int statusmon               = 'A';
-static const char buttonbar[]            = "󰫢 ";
+static const char buttonbar[]            = "󰣇";
+
 static const unsigned int systrayspacing = 1;   /* systray spacing */
 static const int showsystray             = 0;   /* 0 means no systray */
 static const unsigned int ulinepad = 15;         /* horizontal padding between the underline and tag */
