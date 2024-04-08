@@ -36,8 +36,6 @@ static const char *fonts[]               = {
 static const char dmenufont[]            = "monospace:size=10";
 
 static char c000000[]                    = "#000000"; // placeholder value
-//
-//static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#faedff";
 static char normbgcolor[]                = "#000000"; // statusbar bg
@@ -79,8 +77,6 @@ static char urgbgcolor[]                 = "#870e00";
 static char urgbordercolor[]             = "#ff0000";
 static char urgfloatcolor[]              = "#db8fd9";
 //
-
-
 
 static char *colors[][ColCount] = {
 	/*                       fg                bg                border                float */
@@ -136,8 +132,6 @@ static const char *const autostart[] = {
 
 static char *tagicons[][NUMTAGS] = {
 	[DEFAULT_TAGS]        = { "󰅩", "2", "3", "4", "5", "6", "7", "8", "9" },
-	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
-	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
 
 
@@ -328,6 +322,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period,     tagmon,                 {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_comma,      cyclelayout,            {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_period,     cyclelayout,            {.i = +1 } },
+	{ MODKEY,                       XK_F5,     xrdb,           {.v = NULL } },
 	TAGKEYS(                        XK_1,                                  0)
 	TAGKEYS(                        XK_2,                                  1)
 	TAGKEYS(                        XK_3,                                  2)
