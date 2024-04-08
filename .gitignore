@@ -29,7 +29,7 @@
 *.hex
 
 # Project-specific
-dwm
+dwm/dwm
 machine.h
 pkg/*
 *.pkg.tar.xz
