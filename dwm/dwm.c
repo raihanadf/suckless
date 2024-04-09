@@ -1504,13 +1504,13 @@ loadxrdb()
         XRDB_LOAD_COLOR("dwm.color7", normfgcolor); // Status bar foreground
         XRDB_LOAD_COLOR("dwm.color0", tagsnormbgcolor); // Tags not-selected
         XRDB_LOAD_COLOR("dwm.color7", tagsnormfgcolor); 
-        XRDB_LOAD_COLOR("dwm.color7", tagsselfgcolor); // Tags selected
+        XRDB_LOAD_COLOR("dwm.color0", tagsselfgcolor); // Tags selected
         XRDB_LOAD_COLOR("dwm.color6", tagsselbgcolor);
 
-        XRDB_LOAD_COLOR("dwm.color7", titlenormfgcolor);
-        XRDB_LOAD_COLOR("dwm.color0", titlenormbgcolor);
+        XRDB_LOAD_COLOR("dwm.color5", titlenormfgcolor);
+        XRDB_LOAD_COLOR("dwm.color6", titlenormbgcolor);
 
-        XRDB_LOAD_COLOR("dwm.color7", titleselfgcolor);
+        XRDB_LOAD_COLOR("dwm.color0", titleselfgcolor);
         XRDB_LOAD_COLOR("dwm.color6", titleselbgcolor);
 
         XRDB_LOAD_COLOR("dwm.color6", selbordercolor);

@@ -93,10 +93,10 @@ static char *colors[][ColCount] = {
 
 static const char *const autostart[] = {
 	"xrdb","-load","$HOME/.Xresources", NULL,
-	"xss-lock","--","slock", NULL,
+	"xss-lock","--","betterlockscreen", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/autostart.sh", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/batteryCheck.sh", NULL,
-	"nitrogen", "--restore", NULL,
+	"sh","-c","$HOME/.dotfiles/scripts/wal-sync.sh", NULL,
 	"sxhkd", NULL,
 	NULL /* terminate */
 };
