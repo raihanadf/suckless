@@ -1500,7 +1500,7 @@ loadxrdb()
 
       if (xrdb != NULL) {
         XRDB_LOAD_COLOR("dwm.color0", normbordercolor); // Status bar border
-        XRDB_LOAD_COLOR("dwm.color0", normbgcolor); // Status bar background
+        XRDB_LOAD_COLOR("dwm.color0", normbgcolor);
         XRDB_LOAD_COLOR("dwm.color7", normfgcolor); // Status bar foreground
         XRDB_LOAD_COLOR("dwm.color0", tagsnormbgcolor); // Tags not-selected
         XRDB_LOAD_COLOR("dwm.color7", tagsnormfgcolor); 
@@ -1516,6 +1516,14 @@ loadxrdb()
         XRDB_LOAD_COLOR("dwm.color6", selbordercolor);
         XRDB_LOAD_COLOR("dwm.color6", selbgcolor);
         XRDB_LOAD_COLOR("dwm.color7", selfgcolor);
+        XRDB_LOAD_COLOR("dwm.color6", selfloatcolor);
+
+        XRDB_LOAD_COLOR("dwm.color5", hidnormfgcolor);
+        XRDB_LOAD_COLOR("dwm.color5", hidselfgcolor);
+        XRDB_LOAD_COLOR("dwm.color5", hidnormfgcolor);
+        XRDB_LOAD_COLOR("dwm.color6", hidnormbgcolor);
+        XRDB_LOAD_COLOR("dwm.color6", hidselbgcolor);
+
       }
     }
   }
