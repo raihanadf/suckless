@@ -1516,7 +1516,14 @@ loadxrdb()
         XRDB_LOAD_COLOR("dwm.color6", selbordercolor);
         XRDB_LOAD_COLOR("dwm.color6", selbgcolor);
         XRDB_LOAD_COLOR("dwm.color7", selfgcolor);
+
+				// float
         XRDB_LOAD_COLOR("dwm.color6", selfloatcolor);
+        XRDB_LOAD_COLOR("dwm.color0", normfloatcolor);
+        XRDB_LOAD_COLOR("dwm.color6", titlenormfloatcolor);
+        XRDB_LOAD_COLOR("dwm.color6", titleselfloatcolor);
+        XRDB_LOAD_COLOR("dwm.color6", tagsnormfloatcolor);
+        XRDB_LOAD_COLOR("dwm.color6", tagsselfloatcolor);
 
         XRDB_LOAD_COLOR("dwm.color5", hidnormfgcolor);
         XRDB_LOAD_COLOR("dwm.color5", hidselfgcolor);
@@ -2798,7 +2805,7 @@ xrdb(const Arg *arg)
   loadxrdb();
   int i;
   for (i = 0; i < LENGTH(colors); i++)
-                scheme[i] = drw_scm_create(drw, colors[i], 3);
+                scheme[i] = drw_scm_create(drw, colors[i], 4);
   focus(NULL);
   arrange(NULL);
 }
