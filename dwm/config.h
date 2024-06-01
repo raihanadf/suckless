@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx       = 2;   /* border pixel of windows */
-static const unsigned int snap           = 32;  /* snap pixel */
+static const unsigned int borderpx       = 3;   /* border pixel of windows */
+static const unsigned int snap           = 0;  /* snap pixel */
 static const unsigned int gappih         = 5;  /* horiz inner gap between windows */
 static const unsigned int gappiv         = 5;  /* vert inner gap between windows */
 static const unsigned int gappoh         = 5;  /* horiz outer gap between windows and screen edge */
@@ -273,7 +273,7 @@ static const char *dmenucmd[] = {
 	NULL
 };
 static const char *roficmd[] = { "rofi", "-show", "drun", "-sorting-method", "fzf", "-sort", "-matching", "fuzzy", NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 
 
