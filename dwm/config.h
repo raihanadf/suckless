@@ -174,6 +174,7 @@ static const Rule rules[] = {
 	RULE(.class = "Sxiv", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Nitrogen", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Thunar", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "Nautilus", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Zathura", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Xarchiver", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "vlc", .isfloating = 1, .iscentered = 1)
@@ -273,7 +274,7 @@ static const char *dmenucmd[] = {
 	NULL
 };
 static const char *roficmd[] = { "rofi", "-show", "drun", "-sorting-method", "fzf", "-sort", "-matching", "fuzzy", NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 
 
 
