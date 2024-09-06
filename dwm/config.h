@@ -29,9 +29,8 @@ static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const int quit_empty_window_count = 0;   /* only allow dwm to quit if no (<= count) windows are open */
 static const char *fonts[]               = { 
-	"Scientifica:size=16", 
-	"Material Design Icons Desktop:size=14",
-	"Iosevka NF:size=14" 
+	"Iosevka NF:size=14",
+	"Material Design Icons Desktop:size=12",
 };
 static const char dmenufont[]            = "monospace:size=10";
 
@@ -178,6 +177,8 @@ static const Rule rules[] = {
 	RULE(.class = "Zathura", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Xarchiver", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "vlc", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "TablePlus", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "transmission-gtk", .isfloating = 1, .iscentered = 1)
 
 	RULE(.class = "Code", .tags = 1 << 1, .switchtag = 1) // tag-2
 	RULE(.class = "jetbrains-studio", .tags = 1 << 1, .switchtag = 1) // tag-2
