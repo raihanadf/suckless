@@ -93,9 +93,9 @@ static char *colors[][ColCount] = {
 static const char *const autostart[] = {
 	"xrdb","-load","$HOME/.Xresources", NULL,
 	"xss-lock","--","slock", NULL,
+	"sh","-c","$HOME/.dotfiles/scripts/wal-sync.sh", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/autostart.sh", NULL,
 	"sh","-c","$HOME/.dotfiles/scripts/batteryCheck.sh", NULL,
-	"sh","-c","$HOME/.dotfiles/scripts/wal-sync.sh", NULL,
 	"sxhkd", NULL,
 	NULL /* terminate */
 };
@@ -179,6 +179,8 @@ static const Rule rules[] = {
 	RULE(.class = "vlc", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "TablePlus", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "transmission-gtk", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "snapshot", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "Bijiben", .isfloating = 1, .iscentered = 1)
 
 	RULE(.class = "Code", .tags = 1 << 1, .switchtag = 1) // tag-2
 	RULE(.class = "jetbrains-studio", .tags = 1 << 1, .switchtag = 1) // tag-2
@@ -188,6 +190,7 @@ static const Rule rules[] = {
 	RULE(.class = "Google-chrome", .tags = 1 << 2, .switchtag = 1, .iscentered = 1) // tag-8
 	RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
 	RULE(.class = "Microsoft-edge", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
+	RULE(.class = "zen-alpha", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
 
 	RULE(.class = "Spotify", .tags = 1 << 3, .switchtag = 1)
 	RULE(.class = "spotify", .tags = 1 << 3, .switchtag = 1)
