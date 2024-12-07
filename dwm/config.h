@@ -181,6 +181,9 @@ static const Rule rules[] = {
 	RULE(.class = "transmission-gtk", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "snapshot", .isfloating = 1, .iscentered = 1)
 	RULE(.class = "Bijiben", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "zoom", .switchtag = 0, .isfloating = 1, .iscentered = 1)
+	RULE(.class = "Bijiben", .isfloating = 1, .iscentered = 1)
+	RULE(.class = "obsidian", .isfloating = 1, .iscentered = 1)
 
 	RULE(.class = "Code", .tags = 1 << 1, .switchtag = 1) // tag-2
 	RULE(.class = "jetbrains-studio", .tags = 1 << 1, .switchtag = 1) // tag-2
@@ -204,7 +207,6 @@ static const Rule rules[] = {
 	RULE(.class = "discord", .tags = 1 << 5) // tag-6
 	RULE(.class = "vesktop", .tags = 1 << 5) // tag-6
 	
-	RULE(.class = "zoom", .switchtag = 0, .isfloating = 1, .iscentered = 1)
 };
 
 
