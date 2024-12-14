@@ -1499,37 +1499,37 @@ loadxrdb()
       xrdb = XrmGetStringDatabase(resm);
 
       if (xrdb != NULL) {
-        XRDB_LOAD_COLOR("dwm.color0", normbordercolor); // Status bar border
-        XRDB_LOAD_COLOR("dwm.color0", normbgcolor);
+        // XRDB_LOAD_COLOR("dwm.color0", normbordercolor); // Status bar border
+        // XRDB_LOAD_COLOR("dwm.color0", normbgcolor); // Status bar background
         XRDB_LOAD_COLOR("dwm.color7", normfgcolor); // Status bar foreground
-        XRDB_LOAD_COLOR("dwm.color0", tagsnormbgcolor); // Tags not-selected
-        XRDB_LOAD_COLOR("dwm.color7", tagsnormfgcolor); 
-        XRDB_LOAD_COLOR("dwm.color0", tagsselfgcolor); // Tags selected
-        XRDB_LOAD_COLOR("dwm.color6", tagsselbgcolor);
+        // XRDB_LOAD_COLOR("dwm.color0", tagsnormbgcolor); // Tags not-selected background
+        XRDB_LOAD_COLOR("dwm.color7", tagsnormfgcolor);  // Tags not-selected foreground
+        // XRDB_LOAD_COLOR("dwm.color0", tagsselfgcolor); // Tags selected foreground
+        XRDB_LOAD_COLOR("dwm.color7", tagsselbgcolor); // Tags selected background
 
         XRDB_LOAD_COLOR("dwm.color5", titlenormfgcolor);
-        XRDB_LOAD_COLOR("dwm.color6", titlenormbgcolor);
+        XRDB_LOAD_COLOR("dwm.color7", titlenormbgcolor);
 
-        XRDB_LOAD_COLOR("dwm.color0", titleselfgcolor);
-        XRDB_LOAD_COLOR("dwm.color6", titleselbgcolor);
+        // XRDB_LOAD_COLOR("dwm.color0", titleselfgcolor);
+        XRDB_LOAD_COLOR("dwm.color7", titleselbgcolor);
 
-        XRDB_LOAD_COLOR("dwm.color6", selbordercolor);
-        XRDB_LOAD_COLOR("dwm.color6", selbgcolor);
+        XRDB_LOAD_COLOR("dwm.color7", selbordercolor);
+        XRDB_LOAD_COLOR("dwm.color7", selbgcolor);
         XRDB_LOAD_COLOR("dwm.color7", selfgcolor);
 
-				// float
-        XRDB_LOAD_COLOR("dwm.color6", selfloatcolor);
+	// float
+        XRDB_LOAD_COLOR("dwm.color7", selfloatcolor);
         XRDB_LOAD_COLOR("dwm.color0", normfloatcolor);
-        XRDB_LOAD_COLOR("dwm.color6", titlenormfloatcolor);
-        XRDB_LOAD_COLOR("dwm.color6", titleselfloatcolor);
-        XRDB_LOAD_COLOR("dwm.color6", tagsnormfloatcolor);
-        XRDB_LOAD_COLOR("dwm.color6", tagsselfloatcolor);
+        XRDB_LOAD_COLOR("dwm.color7", titlenormfloatcolor);
+        XRDB_LOAD_COLOR("dwm.color7", titleselfloatcolor);
+        XRDB_LOAD_COLOR("dwm.color7", tagsnormfloatcolor);
+        XRDB_LOAD_COLOR("dwm.color7", tagsselfloatcolor);
 
         XRDB_LOAD_COLOR("dwm.color5", hidnormfgcolor);
         XRDB_LOAD_COLOR("dwm.color5", hidselfgcolor);
         XRDB_LOAD_COLOR("dwm.color5", hidnormfgcolor);
-        XRDB_LOAD_COLOR("dwm.color6", hidnormbgcolor);
-        XRDB_LOAD_COLOR("dwm.color6", hidselbgcolor);
+        XRDB_LOAD_COLOR("dwm.color7", hidnormbgcolor);
+        XRDB_LOAD_COLOR("dwm.color7", hidselbgcolor);
 
       }
     }
