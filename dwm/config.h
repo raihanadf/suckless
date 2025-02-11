@@ -192,9 +192,8 @@ static const Rule rules[] = {
 	RULE(.class = "Chromium", .tags = 1 << 2, .switchtag = 1, .iscentered = 1) // tag-8
 	RULE(.class = "Google-chrome", .tags = 1 << 2, .switchtag = 1, .iscentered = 1) // tag-8
 	RULE(.class = "firefox", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
-	RULE(.class = "zen-beta", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
+	RULE(.class = "zen", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
 	RULE(.class = "Microsoft-edge", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
-	RULE(.class = "zen-alpha", .tags = 1 << 2, .switchtag = 1, .iscentered = 1)
 
 	RULE(.class = "Spotify", .tags = 1 << 3, .switchtag = 1)
 	RULE(.class = "spotify", .tags = 1 << 3, .switchtag = 1)
