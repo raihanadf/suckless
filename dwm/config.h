@@ -29,7 +29,7 @@ static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 static const int quit_empty_window_count = 0;   /* only allow dwm to quit if no (<= count) windows are open */
 static const char *fonts[]               = { 
-	"Iosevka NF:size=14",
+	"Iosevka NF:size=14:style=bold",
 	"Material Design Icons Desktop:size=12",
 };
 static const char dmenufont[]            = "monospace:size=10";
@@ -200,6 +200,9 @@ static const Rule rules[] = {
 
 	RULE(.class = "calibre", .tags = 1 << 4, .switchtag = 1) // tag-5
 
+	RULE(.class = "qbittorrent", .tags = 1 << 4, .isfloating = 1, .iscentered = 1) // tag-5
+	RULE(.class = "qBittorrent", .tags = 1 << 4, .isfloating = 1, .iscentered = 1) // tag-5
+	RULE(.class = "Steam", .tags = 1 << 4, .isfloating = 1, .iscentered = 1) // tag-5
 	RULE(.class = "Steam", .tags = 1 << 4, .isfloating = 1, .iscentered = 1) // tag-5
 	RULE(.class = "steam", .tags = 1 << 4, .isfloating = 1, .iscentered = 1) // tag-5
 	RULE(.class = "steamwebhelper", .tags = 1 << 4, .isfloating = 1, .iscentered = 1 ) // tag-5
