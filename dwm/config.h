@@ -209,6 +209,7 @@ static const Rule rules[] = {
 
 	RULE(.class = "discord", .tags = 1 << 5) // tag-6
 	RULE(.class = "vesktop", .tags = 1 << 5) // tag-6
+	RULE(.class = "teams-for-linux", .tags = 1 << 8) // tag-9
 	
 };
 
