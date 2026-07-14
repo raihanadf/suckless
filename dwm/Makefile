@@ -61,6 +61,11 @@ endif
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
+	@if [ -n "$$SUDO_USER" ]; then \
+		su - "$$SUDO_USER" -c '~/.dotfiles/scripts/sync-command-palette.sh'; \
+	else \
+		"$$HOME/.dotfiles/scripts/sync-command-palette.sh"; \
+	fi
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
